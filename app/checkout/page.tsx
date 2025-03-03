@@ -1,5 +1,5 @@
 "use client";
-
+import { Suspense } from "react";
 import axios from "axios";
 import { useSearchParams } from "next/navigation";
 import React, { useCallback } from "react";
@@ -31,9 +31,11 @@ function CheckoutPage() {
 
   return (
     <div id="checkout">
-      <EmbeddedCheckoutProvider stripe={stripePromise} options={options}>
-        <EmbeddedCheckout />
-      </EmbeddedCheckoutProvider>
+      <Suspense>
+        <EmbeddedCheckoutProvider stripe={stripePromise} options={options}>
+          <EmbeddedCheckout />
+        </EmbeddedCheckoutProvider>
+      </Suspense>
     </div>
   );
 }
