@@ -10,11 +10,7 @@ import SubmitReview from "@/components/reviews/SubmitReview";
 import ProductReviews from "@/components/reviews/ProductReviews";
 import { auth } from "@clerk/nextjs/server";
 
-const SingleProductPage = async ({
-  params,
-}: {
-  params: Promise<{ id: string }>;
-}) => {
+const SingleProductPage = async ({ params }: { params: Promise<any> }) => {
   const resolved = await params;
   console.log(params);
   const product = await fetchSingleProduct(resolved.id);
